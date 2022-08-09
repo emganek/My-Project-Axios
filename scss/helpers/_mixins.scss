@@ -1,0 +1,43 @@
+@mixin styleText($fs, $textColor, $fw) {
+    font-size: $fs;
+    color: $textColor !important;
+    font-weight: $fw;
+}
+
+@mixin socialList($color-original, $color-hover, $item-space){
+    margin:0px;
+    
+    li{
+        display:inline-block;
+        margin-right: $item-space;
+        transition: color .4s;
+        cursor: pointer;
+        color: $color-original;
+
+        &:hover{
+            color: $color-hover;
+        }
+    }
+}
+
+@mixin inputFormat(){
+    position: relative;
+
+    span {
+        @include styleText($fs-1, $color-purple, $fw-1);
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 1rem;
+    }
+
+    input {
+        padding: 1em 1em 1em 3.5em !important;
+        font-size: .8em !important;
+        height: 3.7em;
+        border-radius: 50px;
+        border: 1px solid rgba(0, 0, 0, .1);
+        width:100%;
+        outline: none;
+    }
+}

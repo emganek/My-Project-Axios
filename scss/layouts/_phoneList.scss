@@ -1,0 +1,95 @@
+#phoneList {
+    background-color: white;
+    position: relative;
+
+    #filter{
+        select{
+            width:200px;
+            font-weight: 600;
+        }
+    }
+
+    .phoneList-item {
+        .card {
+            border-radius: $fs-1;
+            transition: all .1s;
+            overflow: hidden;
+            
+            .phoneList-item-image{
+                overflow: hidden;
+                position: relative;
+                
+                .card-img-top {
+                    border-radius: $fs-1 $fs-1 0px 0px;
+                    transform: scale3d(1,1,1);
+                    transition: all .5s;
+                    overflow: hidden;
+                    padding:1rem;
+    
+                    &:hover{
+                        transform: scale3d(1.05,1.05,1.05);
+                    }
+                }
+                
+                .card-overlay{
+                    width: 100%;
+                    height: 30%;
+                    position: absolute;
+                    overflow-y: scroll;
+                    bottom: 0px;
+                    background-color: $color-gray-2;
+                    @include styleText(12px, $color-white, $fw-1);
+                    opacity: 0;
+                    transition: opacity .5s;
+
+                    &::-webkit-scrollbar{
+                        display: none;
+                    }
+                }
+
+                button{
+                    position:absolute;
+                    left:8px;
+                    top:8px;
+                }
+            }
+
+            .card-body {
+                position:relative;
+                background-color: $color-gray-1;
+                
+                h6 {
+                    @include styleText(12px, $color-purple, $fw-3);
+                }
+
+                h4 {
+                    @include styleText($fs-5, $color-black, $fw-3);
+                }
+
+                p {
+                    @include styleText($fs-2, $color-red-1, $fw-2);
+                    margin-bottom: 0px;
+                }
+            }
+
+            &:hover {
+                box-shadow: 0 30px 30px -10px $color-shadow-1;
+
+                .card-overlay{
+                    opacity: 1;
+                }
+            }
+        }
+    }
+
+    .phoneList-background-img{
+        position: absolute;
+        bottom:0px;
+        left: 0px;
+        right:0px;
+
+        img{
+            width:100%;
+        }
+    }
+}

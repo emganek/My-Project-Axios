@@ -1,0 +1,104 @@
+header{
+    position:sticky;
+    top:0px;
+    z-index: 10;
+    background-color: $color-gray-1;
+
+    .navbar{
+        .logo{
+            @include styleText($fs-3, $color-purple, $fw-3);
+        }
+
+        .navbar-toggler{
+            i{
+                color: $color-purple;
+            }
+        }
+    
+        .navbar-nav{
+            .nav-item{
+                margin:0px;
+                padding-right: $fs-6;
+    
+                .nav-link{
+                    @include styleText($fs-1, $color-black, $fw-3);
+                    line-height: 80px;
+                    transition: color .5s;
+                    position: relative;
+    
+                    &::after{
+                        content: "";
+                        height: 13px;
+                        width: 13px;
+                        border-radius: 100%;
+                        display: block;
+                        background-color: $color-purple;
+                        transform: scale(0);
+                        transition: transform .3s;
+                        position: absolute;
+                        left: 0;
+                        right: 0;
+                        margin:0 auto;
+    
+                        @media screen and (max-width:1199px){
+                                display: none;
+                        }
+                    }
+                }
+    
+                &:hover{
+                    .nav-link{
+                        @include styleText($fs-1, $color-purple, $fw-3);
+                        &::after{
+                            transform: scale(1);
+                        }
+                    }
+                }
+            }
+    
+            .active{
+                .nav-link{
+                    @include styleText($fs-1, $color-black, $fw-3);
+                    &::after{
+                        transform: scale(0.5);
+                    }
+                }
+            }
+        }
+
+        #cart{
+            position: absolute;
+            right: -2rem;
+            
+            #showCartBtn{
+                outline: none;
+                border: none;
+                background-color: transparent;
+                font-size: 1.3rem
+            }
+            
+            #numCartItem{
+                text-align: center;
+                width: 15px;
+                height:15px;
+                background-color: $color-red-1;
+                position:absolute;
+                @include styleText(8px, white, $fw-3);
+                line-height: 15px;
+                border-radius: 15px;
+                top:0px;
+                right:0px;
+            }
+        }
+    }
+}
+
+.header-background-image{
+    position: absolute;
+    top: 0px;
+    z-index: 0;
+
+    img{
+        width: 100%;
+    }
+}
